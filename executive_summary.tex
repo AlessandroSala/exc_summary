@@ -198,7 +198,7 @@ where $\tilde \rho_p$ properly accounts for the boundary conditions.
 
 \subsection{Generalised Conjugate Gradient}
 The GCG method \cite{gcg1} is implemented for the diagonalization of the KS equations. 
-GCG is an iterative eigensolver designed with the aim of improving LOBPCG, it is a blocked algorithm, which uses the inverse power method and previous search directions to generate the subspace in which to search for the eigenvectors of the matrix.
+GCG is an iterative eigensolver designed with the aim of improving LOBPCG; it is a blocked algorithm, which uses the inverse power method and previous search directions to generate the subspace in which to search for the eigenvectors of the matrix.
 The method is implemented with the following modifications:
 \begin{itemize}
     \item it is extended to the complex case, meaning transposition operations are replaced by conjugate transpose operations;
@@ -210,7 +210,7 @@ The method is implemented with the following modifications:
 \section{Benchmarks}
 \subsection{Spherical nuclei}
 The new implementation is shown to be in numerical agreement with the well-established spherical code \texttt{\texttt{hfbcs\_qrpa}}. Results in table \ref{tab:confronto} are shown for the light $^{16}$O, and in table \ref{tab:compare_all_zr90} for the heavier nuclei $^{90}$Zr, both calculated neglecting pairing correlations. Unlike radial codes, where the mesh is 1D and its lattice can be made very refined, the unconstrained mesh suffers from the computational cost of a high number of points, as shown by the numerical error when the step size increases in table \ref{tab:compare_all_zr90}. All spherical calculations use a step size of $0.1$ fm.
-\begin{table}[ht]
+\begin{table}[h]
   \centering
   \begin{tabular}{lrcc}
     \multicolumn{4}{c}{\textbf{Physical quantities}}\\
@@ -247,7 +247,7 @@ The new implementation is shown to be in numerical agreement with the well-estab
   \caption{$^{16}$O complete of the Skyrme functional and Coulomb interaction. }
   \label{tab:confronto}
 \end{table}
-\begin{table}[ht]
+\begin{table}[h]
   \centering
   \begin{tabular}{lrcc}
     \multicolumn{4}{c}{\textbf{Physical quantities}}\\
@@ -270,7 +270,7 @@ The new implementation is shown to be in numerical agreement with the well-estab
 The GCG implementation is also validated for deformed nuclei using two different codes. The ground state properties of the light, deformed $^{24}$Mg are first compared to the results of the \texttt{HFBTHO} code, which is a well-established basis code. After that, a comparison with the more similar Cartesian mesh code \texttt{EV8} is shown.
 \subsection{Basis code and ground state}
 In table \ref{tab:mg_table}, some physical properties of the ground state of $^{24}$Mg are compared to the results of the code \texttt{HFBTHO}, the results are in accordance and show good agreement. Some differences may arise due to the profoundly different numerical techniques adopted, which may hinder the performance of \texttt{HFBTHO} in such a deformed system.
-\begin{table}[ht]
+\begin{table}[h]
   \centering
   \begin{tabular}{lrcc}
     \addlinespace[0.3em]
@@ -291,7 +291,7 @@ $ fm, step size 0.33 fm, SkM* parametrisation.}
 
 In table \ref{tab:levels}, the single-particle energy levels of the ground state of $^{24}$Mg are shown to demonstrate the degeneration removal within the same sub-shell. As predicted by the Nilsson model, levels with a lower $|m_j|$ projection are lowered in energy, while those with a higher projection are raised, with respect to the spherical (degenerate) case.
 
-\begin{table}[ht]
+\begin{table}[h]
 \centering
 % --- Neutron Table ---
 \begin{tabular}{lcc}
@@ -333,7 +333,7 @@ The quadrupole moment relates to the $\beta_2$ deformation parameter as
 \end{equation*}
 This formulation is used throughout the implementation of this work.
 
-\begin{figure}[htp]
+\begin{figure}[h]
   \centering
   \includegraphics[width=1.0\linewidth]{Images/ev8_compare_nopair}
   \caption{Comparison with the $\texttt{EV8}$ code for $^{24}$Mg, no pairing interaction, box $[-10,+10]
@@ -345,9 +345,9 @@ $ fm, step size 0.6 fm, SLy4 parametrisation.}
 Since the benchmarks show a correct implementation, both of the theoretical framework and the numerical methods, we attempted to produce some original results. 
 \subsection{$^{20}$Ne clustering}
 The formation of clusters in light nuclei has been a research focus object in recent years. The interest stems from different reasons. The formation of clusters at low density is a strong indicator of specific correlations (n-p correlations or alpha-particle, ie `quartetting' correlations) and a strong test for theory. At the same time, clustering may have impact on reactions and astrophysical processes. It has to be noted that cluster formation during fission has been highlighted. This phenomena is studied using the Nucleon Localization Function (NLF), which is the conditional probability of finding another nucleon, if one is present in $\bm r$, and it reads
-\begin{equation}
-    C_q(\bm r) = \bigg[1+ \bigg(\frac{\tau_q\rho_q -\frac 1 4 |\nabla\rho_q|^2}{\rho_q \tau_{q}^{\text{TF}}}\bigg)^2\bigg]^{-1}
-\end{equation}
+\begin{equation*}
+    C_q(\bm r) = \bigg[1+ \bigg(\frac{\tau_q\rho_q -\frac 1 4 |\nabla\rho_q|^2}{\rho_q \tau_{q}^{\text{TF}}}\bigg)^2\bigg]^{-1}.
+\end{equation*}
 In figure \ref{fig:kde33_nlf}, we show that the ground state of $^{20}$Ne displays prominent clusters on top and bottom of a central core. This happens consistently for different Skyrme functionals.
 \begin{figure}
     \centering
@@ -367,7 +367,7 @@ Since a Cartesian mesh is well-suited for the study of weakly bound systems, we 
 
 We compare the experimental neutron $S_n$ or proton $S_p$ separation energy with the theoretical value calculated using Koopmans' theorem. In table \ref{tab:s28_table}, we show that both the SLy4 and SkM* functionals give results similar to experimentally measured values.
 
-\begin{table}[ht]
+\begin{table}[h]
   \centering
   \begin{tabular}{lrccc}
     \toprule
@@ -394,7 +394,7 @@ $ fm.}
   \label{fig:si42_density}
 \end{figure}
 
-\begin{table}[ht]
+\begin{table}[h]
   \centering
   \begin{tabular}{lrccc}
     \toprule
@@ -415,7 +415,7 @@ $ fm, step size 0.34 fm.}
 
 \section{Conclusions}
 We showed that the implementation of a Cartesian mesh code, that is able to solve the minimisation of energy functionals, even for deformed nuclei, is both possible and efficient when using the Generalised Conjugate Gradient method. The results obtained with the GCG implementation are in good agreement with the results obtained with the well-established spherical code \texttt{\texttt{hfbcs\_qrpa}} and the deformed codes \texttt{EV8} and \texttt{HFBTHO}.
-Thanks to the flexibility offered by the method, many further advances based on this work can be carried out. Most importantly, the implementation of a full Hartree--Fock--Bogoliubov approach, which would allow the self-consistent treatment of the mean-field and pairing interactions. On top of that, a similar approach can be used to solve other analogous problems in nuclear physics, such as in the ab-initio methods, and in other physics and engineering applications as well.
+Thanks to the flexibility offered by the method, many further advancements based on this work can be carried out. Most notably, the implementation of a full Hartree--Fock--Bogoliubov approach, which would allow the self-consistent treatment of the mean-field and pairing interactions. On top of that, a similar approach can be used to solve other analogous problems in nuclear physics, such as in the ab-initio methods.
 
 
 
