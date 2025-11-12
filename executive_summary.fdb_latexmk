@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex executive_summary"] 1762955762.53188 "executive_summary.aux" "executive_summary.bbl" "executive_summary" 1762955786.12884 0
+["bibtex executive_summary"] 1762966077.71984 "executive_summary.aux" "executive_summary.bbl" "executive_summary" 1762966090.66354 0
   "./bibliography.bib" 1762955688.9387 8642 7f615c8c44a44cedcfe19bb4604f5325 ""
   "/usr/share/texlive/texmf-dist/bibtex/bst/base/plain.bst" 1737590400 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
-  "executive_summary.aux" 1762955785.49379 8822 931f4b186288ac988de9cf7663b5766b "pdflatex"
+  "executive_summary.aux" 1762966090.10152 8009 faac9e576be0af0b66047d9fa1bc841a "pdflatex"
   (generated)
   "executive_summary.bbl"
   "executive_summary.blg"
   (rewritten before read)
-["pdflatex"] 1762955783.61864 "/home/ale/Documents/Uni/exc_summary/executive_summary.tex" "executive_summary.pdf" "executive_summary" 1762955786.1293 0
-  "/home/ale/Documents/Uni/exc_summary/executive_summary.tex" 1762955783.25677 21111 de2bc6dcc94b97b9f50c54b9e718802a ""
+["pdflatex"] 1762966088.24839 "/home/ale/Documents/Uni/exc_summary/executive_summary.tex" "executive_summary.pdf" "executive_summary" 1762966090.66389 0
+  "/home/ale/Documents/Uni/exc_summary/executive_summary.tex" 1762966087.88149 26055 525361c25e011aaec4f871d24b5b553c ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecbx0900.tfm" 1136768653 3584 1a7de6c99457381c64abc1a7c545505f ""
@@ -241,15 +241,13 @@
   "Images//logo_polimi_ing_indinf.eps" 1762444526 1016894 87cec33dc4ce62619be8e2b6e306843d ""
   "Images//raggiera_polimi.eps" 1762444526 1813066 dca994a8e6dbfff46979ea0a845ddce3 ""
   "Images/ev8_compare_nopair.pdf" 1762892882.79967 24143 c377c638d1d2530e86fd43e332b2ed56 ""
-  "Images/kde33_density.pdf" 1762891961.45507 68933 acba054b19f4b5a3f4bc1430000c479f ""
   "Images/kde33_localization.pdf" 1762890974.85869 132391 ab7e9c1998b384b0818b470fcb626541 ""
   "Images/mg_gs_density_axial.pdf" 1762891003.88253 71903 9abb7a729236e1729b022d9a213f9ef6 ""
-  "Images/s28_density_sly4.pdf" 1762891003.85353 73925 6bfce09c383523a97b5bcb01d4d3efe6 ""
   "Images/si42_density_sly4.pdf" 1762891003.82753 72585 6cb3343cb6a2d757825cc6996b263c61 ""
-  "executive_summary.aux" 1762955785.49379 8822 931f4b186288ac988de9cf7663b5766b "pdflatex"
-  "executive_summary.bbl" 1762955762.67154 1178 8420e4d8e0c0e8600e3a12a529f5364a "bibtex executive_summary"
-  "executive_summary.out" 1762955785.49679 3041 5bc6e78c065e94288b4152616c88d77f "pdflatex"
-  "executive_summary.tex" 1762955783.25677 21111 de2bc6dcc94b97b9f50c54b9e718802a ""
+  "executive_summary.aux" 1762966090.10152 8009 faac9e576be0af0b66047d9fa1bc841a "pdflatex"
+  "executive_summary.bbl" 1762966077.85135 1178 8420e4d8e0c0e8600e3a12a529f5364a "bibtex executive_summary"
+  "executive_summary.out" 1762966090.10352 3041 5bc6e78c065e94288b4152616c88d77f "pdflatex"
+  "executive_summary.tex" 1762966087.88149 26055 525361c25e011aaec4f871d24b5b553c ""
   (generated)
   "executive_summary.aux"
   "executive_summary.log"
