@@ -1,0 +1,29 @@
+\begin{thebibliography}{1}
+
+\bibitem{Bender2003}
+M.~Bender, P.-H. Heenen, and P.-G. Reinhard.
+\newblock Self-consistent mean-field models for nuclear structure.
+\newblock {\em Reviews of Modern Physics}, 75(1):121--180, 2003.
+
+\bibitem{NDFT}
+G.~Colò.
+\newblock Nuclear density functional theory.
+\newblock {\em Advances in Physics: X}, 5(1):1740061, 2020.
+
+\bibitem{gcg1}
+Yu~Li, Hehu Xie, Ran Xu, Chun'guang You, and Ning Zhang.
+\newblock A parallel generalised conjugate gradient method for large scale eigenvalue problems.
+\newblock {\em CCF Transactions on High Performance Computing}, 2(2):111--122, jun 2020.
+\newblock The corresponding computing package can be downloaded from the web site: \url{https://github.com/pase2017/GCGE-1.0}.
+
+\bibitem{stevenson2019low}
+P.D. Stevenson and M.C. Barton.
+\newblock Low-energy heavy-ion reactions and the skyrme effective interaction.
+\newblock {\em Progress in Particle and Nuclear Physics}, 104:142--164, 2019.
+
+\bibitem{VauhBrinkOriginal}
+D.~Vautherin and D.~M. Brink.
+\newblock Hartree--fock calculations with skyrme's interaction. i. spherical nuclei.
+\newblock {\em Phys. Rev. C}, 5:626--647, Mar 1972.
+
+\end{thebibliography}

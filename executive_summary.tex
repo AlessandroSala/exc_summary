@@ -1,0 +1,369 @@
+% A LaTeX template for EXECUTIVE SUMMARY of the MSc Thesis submissions to 
+% Politecnico di Milano (PoliMi) - School of Industrial and Information Engineering
+%
+% S. Bonetti, A. Gruttadauria, G. Mescolini, A. Zingaro
+% e-mail: template-tesi-ingind@polimi.it
+%
+% Last Revision: October 2021
+%
+% Copyright 2021 Politecnico di Milano, Italy. NC-BY
+
+\documentclass[11pt,a4paper,twocolumn]{article}
+
+%------------------------------------------------------------------------------
+%	REQUIRED PACKAGES AND  CONFIGURATIONS
+%------------------------------------------------------------------------------
+% PACKAGES FOR TITLES
+\usepackage{titlesec}
+\usepackage{color}
+\usepackage{physics}
+% PACKAGES FOR LANGUAGE AND FONT
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc} % Font encoding
+
+% PACKAGES FOR IMAGES
+\usepackage{graphicx}
+\graphicspath{{Images/}} % Path for images' folder
+\usepackage{eso-pic} % For the background picture on the title page
+\usepackage{subfig} % Numbered and caption subfigures using \subfloat
+\usepackage{caption} % Coloured captions
+\usepackage{transparent}
+
+% STANDARD MATH PACKAGES
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{bm}
+\usepackage[overload]{empheq}  % For braced-style systems of equations
+
+% PACKAGES FOR TABLES
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{longtable} % tables that can span several pages
+\usepackage{colortbl}
+
+% PACKAGES FOR ALGORITHMS (PSEUDO-CODE)
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+% PACKAGES FOR REFERENCES & BIBLIOGRAPHY
+\usepackage[colorlinks=true,linkcolor=black,anchorcolor=black,citecolor=black,filecolor=black,menucolor=black,runcolor=black,urlcolor=black]{hyperref} % Adds clickable links at references
+\usepackage{cleveref}
+\usepackage[square, numbers, sort&compress]{natbib} % Square brackets, citing references with numbers, citations sorted by appearance in the text and compressed
+\bibliographystyle{plain} % You may use a different style adapted to your field
+
+% PACKAGES FOR THE APPENDIX
+\usepackage{appendix}
+
+% PACKAGES FOR ITEMIZE & ENUMERATES 
+\usepackage{enumitem}
+
+% OTHER PACKAGES
+\usepackage{amsthm,thmtools,xcolor} % Coloured "Theorem"
+\usepackage{comment} % Comment part of code
+\usepackage{fancyhdr} % Fancy headers and footers
+\usepackage{lipsum} % Insert dummy text
+\usepackage{tcolorbox} % Create coloured boxes (e.g. the one for the key-words)
+\usepackage{stfloats} % Correct position of the tables
+\allowdisplaybreaks
+
+%-------------------------------------------------------------------------
+%	NEW COMMANDS DEFINED
+%-------------------------------------------------------------------------
+% EXAMPLES OF NEW COMMANDS -> here you see how to define new commands
+\newcommand{\bea}{\begin{eqnarray}} % Shortcut for equation arrays
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\e}[1]{\times 10^{#1}}  % Powers of 10 notation
+\newcommand{\mathbbm}[1]{\text{\usefont{U}{bbm}{m}{n}#1}} % From mathbbm.sty
+\newcommand{\pdev}[2]{\frac{\partial#1}{\partial#2}}
+% NB: you can also override some existing commands with the keyword \renewcommand
+
+%----------------------------------------------------------------------------
+%	ADD YOUR PACKAGES (be careful of package interaction)
+%----------------------------------------------------------------------------
+
+
+%----------------------------------------------------------------------------
+%	ADD YOUR DEFINITIONS AND COMMANDS (be careful of existing commands)
+%----------------------------------------------------------------------------
+
+
+% Do not change Configuration_files/config.tex file unless you really know what you are doing. 
+% This file ends the configuration procedures (e.g. customizing commands, definition of new commands)
+\input{Configuration_files/config}
+
+% Insert here the info that will be displayed into your Title page 
+% -> title of your work
+\renewcommand{\title}{Generalised Conjugate Gradient for the minimisation of energy functionals in deformed nuclei}
+% -> author name and surname
+\renewcommand{\author}{Alessandro Sala}
+% -> MSc course
+\newcommand{\course}{Nuclear Engineering - Ingegneria Nucleare}
+% -> advisor name and surname
+\newcommand{\advisor}{Prof. Matteo Passoni}
+% IF AND ONLY IF you need to modify the co-supervisors you also have to modify the file Configuration_files/title_page.tex (ONLY where it is marked)
+\newcommand{\firstcoadvisor}{Prof. Gianluca Colò} % insert if any otherwise comment
+%\newcommand{\secondcoadvisor}{Name Surname} % insert if any otherwise comment
+% -> academic year
+\newcommand{\YEAR}{2024-2025}
+
+%-------------------------------------------------------------------------
+%	BEGIN OF YOUR DOCUMENT
+%-------------------------------------------------------------------------
+\begin{document}
+
+%-----------------------------------------------------------------------------
+% TITLE PAGE
+%-----------------------------------------------------------------------------
+% Do not change Configuration_files/TitlePage.tex (Modify it IF AND ONLY IF you need to add or delete the Co-advisors)
+% This file creates the Title Page of the document
+\input{Configuration_files/title_page}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%     THESIS MAIN TEXT     %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Introduction}
+The theoretical study of atomic nuclei provides a bridge between nuclear physics and nuclear engineering. Starting from a framework consistent with quantum mechanics, the strong interaction, and its underlying symmetries, modern nuclear theory aims to construct models characterised by a limited number of free parameters and capable of predicting both nuclear structure and reactions, across a wide range of systems. While experimental data have long provided invaluable insight into nuclear properties and processes, only a coherent theoretical description allows for systematic extrapolations towards regions of the nuclear chart or physical conditions that remain beyond current experimental reach, thus playing an essential role in applications relevant to nuclear engineering.
+
+In particular, nuclear fission, despite its massive importance in nuclear engineering, remains only partially understood from a microscopic standpoint. Current models that use empirical approaches successfully reproduce global quantities like fission barrier heights, fragment mass distributions, and average neutron multiplicities for well studied nuclei. However, these models may rely on a huge number of parameters, which limit their predictive power when extrapolated to systems which are less investigated experimentally. A fully microscopic understanding of the collective dynamics leading from the compound nucleus to scission, the treatment of quantum many-body correlations, and the description of fragment excitation and emission remain among the major open challenges, particularly relevant for the simulation of next-generation reactors, which require the accurate description of nuclei and fuel materials -- far less explored than those employed in traditional thermal systems -- to be correctly predicted. 
+
+\subsection{Microscopic description of nuclei}
+In this regard, the approach to the microscopic description of nuclei, is the one of the many-body theory, which starting from the interacting nucleons, aims at building a complete description of the nucleus. The use of phenomenological potentials based on the Woods-Saxon one is still relevant, thanks to its computational feasibility and its capability to include shell effects in a simple manner, but it cannot account for many-body effects.
+At the moment, there are two competing frameworks that try to tackle the microscopic description of nuclei, (a) the \textit{ab-initio} approach, where the interaction is in principle exact, derived from controlled approximations of quantum chromodynamics; and (b) the use of effective interactions and nuclear Density Functional Theory.
+
+\paragraph{Ab-initio methods}
+Ab-initio methods, while technically speaking more rigorous, are still limited as of now, since they can only account for light nuclei or medium-heavy nuclei that can be considered as spherical.
+Energy density functionals and effective interactions, such as the Skyrme force, on the other hand are more flexible and less computationally expensive, enabling a much wider representation of nuclei across the whole chart, including heavy nuclei and processes such as fission, fusion, reactions and decays, which are of crucial importance in nuclear engineering.
+
+\paragraph{Density Functional Theory}
+D Vautherin and D M Brink laid the foundations of the nuclear Hartree--Fock theory using the Skyrme interaction in 1972 \cite{VauhBrinkOriginal}, through spherically symmetric calculations, which are unable to account for nuclear deformations, essential for nuclei far from magic numbers.
+Over the years, thanks to the increase in computational performance of modern hardware, codes that are able to represent more coordinates have been written, mainly using basis expansions on the harmonic oscillator,  which have the downside of not being able to account for near drip line nuclei, due to the diffent asymptotic behaviour of the Gaussian basis in the harmonic oscillator and quasi-resonant states \cite{NDFT}.
+Thanks to the flexibility offered by nuclear DFT, it has been chosen in the present work as the framerowk of choice. In particular, using an Energy Density Functional (EDF) derived inspired by the Hartree--Fock expectation value of the Skyrme interaction.
+
+\section{Objective and methods}
+The aim of this work is to develop a new implementation of the Hartree--Fock method on an unconstrained 3D mesh, by the use of the Generalised Conjugate Gradient (GCG) method \cite{gcg1}. 
+\subsection{Objectives}
+The goals addressed by this work are the following:
+\begin{itemize}
+    \item demonstrate the feasibility of the Generalised Conjugate Gradient for the solution of large-scale eigenvalue problems;
+    \item solve the self-consistent Hartree--Fock equations on an unconstrained 3D mesh;
+    \item verify the numerical accuracy of the new implementation, first against existing spherical codes;
+    \item second against well established deformed codes; and
+    \item attempt to produce novel results that specifically require an unconstrained implementation of this kind, and establish the advance brought to the field by this work.
+\end{itemize}
+\subsection{Methods}
+\paragraph{Skyrme Energy Functional}  
+The many-body nuclear problem is approached within the Hartree--Fock framework, described in section~\ref{sec:hf}.  
+As discussed in chapter \ref{chap:intro}, a pure HF treatment is not sufficient for a quantitative description of nuclear structure, 
+and a more general energy density functional (EDF) formulation must be adopted.  
+In this work, we employ the Skyrme EDF, whose construction and resulting mean-field equations are developed in section~\ref{sec:skyrme}.  
+This provides the self-consistent single-particle Hamiltonian that forms the basis for the numerical treatment.
+
+\paragraph{Finite Differences and Generalised Conjugate Gradient}  
+Once the equations to be solved have been derived, their numerical solution requires both a spatial discretization scheme and an efficient solver for the large-scale eigenvalue problem that arises at each iteration of the self-consistent procedure.
+\section{Theoretical framework}
+The energy functional to be minimised is of the form \cite{Bender2003}
+\begin{equation*}
+E_{\text{HF}} = \int( \mathcal E_\text{Kin} + \mathcal E_\text{Skyrme} + \mathcal E_\text{Coul})d\bm r.
+\end{equation*}
+\subsection{Skyrme Functional}
+The Skyrme functional formulation used is the following \cite{stevenson2019low}: 
+\begin{align*}
+    \label{eq:skfunc}
+    \mathcal E_\text{Skyrme} = \sum_{t=0,1}\bigg\{ & C_t^\rho [\rho_0]\rho_t^2+C_t^{\Delta \rho}\rho_t\nabla^2\rho_t+\\&+C_t^{\nabla\cdot J}\rho_t\nabla\cdot \mathbf J_t + C_t^\tau\rho_t\tau_t\bigg\}
+\end{align*}
+\subsection{Coulomb treatment}
+Unlike the Skyrme interaction, the Coulomb force is finite-range, giving rise to an unwanted integral operator in the single-particle Hamiltonian.
+A well known and widely used device is the Slater approximation \cite{SlaterApp}, which gives a local exchange interaction.
+In this approximation, the Coulomb energy reads
+\begin{align*}
+    E_\text{Coul} = \int \mathcal E_\text{Coul}(\mathbf r) d\bm r
+\end{align*}
+where the energy density is given by
+\begin{align}
+    \mathcal E_\text{Coul}(\bm r) = \frac{e^2}{2}\bigg[\int  \frac{\rho_p\rho_p'}{|\mathbf r-\mathbf r'|}d\mathbf r'  - \frac 3 2 \bigg(\frac 3 \pi \bigg) ^{\frac 1 3}\rho_p^{4/3}\bigg].
+\end{align}
+which results in the Coulomb potential field
+\begin{equation}
+    U_{C}(\mathbf r) =  \frac{e^2}{2}\bigg[\int \frac{\rho_p(\mathbf r ')}{|\mathbf r-\mathbf r'|} d^3 \mathbf r' - 2\bigg(\frac 3 \pi \bigg) ^{\frac 1 3} \rho_p^{1/3}(\mathbf r ) \bigg]
+\end{equation}
+Given the proton density, we can impose Dirichlet boundary conditions, which can be extracted from a quadrupole expansion of the charge density \cite{Jackson1998}
+\begin{equation}
+V_c (\mathbf r) = 4\pi e^2 \sum_{\lambda=0}^2\sum_{\mu=-\lambda}^\lambda \frac{\expval{Q_{\lambda\mu}} Y_{\lambda\mu}}{r^{1+\lambda}}\text{ on }\partial \Omega
+\end{equation}
+\section{Numerical Implementation}
+\subsection{Finite Differences}
+Given that the whole equation is linear in $\varphi$, we can evaluate it on the chosen mesh, using finite differences to approximate the differential operators, yielding a linear eigenvalue problem of the form
+\begin{align}
+    \sum_{\alpha = 1}^{N} A_{\alpha\beta}\varphi_{\beta} &= E\varphi_\alpha
+\end{align}
+where the shorthand notation $N=2\cdot N_x\cdot N_y\cdot N_z$ is used to denote the size of the matrix A, which is $N\times N$.
+
+\subsection{Generalised Conjugate Gradient}
+The novel Generalised Conjugate Gradient is implemented \cite{gcg1}.
+
+\section{Benchmarks}
+\subsection{Spherical nuclei}
+\begin{table}[ht]
+  \centering
+  \begin{tabular}{lrcc}
+    \multicolumn{4}{c}{\textbf{Physical quantities}}\\
+    \addlinespace[0.3em]
+    \toprule
+    && GCG & hfbcs\_qrpa \\
+    \midrule
+    $E_{\text{TOT}}$& [MeV] & -128.402 & -128.400 \\
+    $\expval{ r^2_n}^{1/2}$ &[fm] & 2.6584 & 2.6585 \\
+    $\expval{ r^2_p}^{1/2}$ &[fm] & 2.6835 & 2.6836 \\
+    $\expval{ r^2_{ch}}^{1/2}$ &[fm] & 2.7805 & 2.7803 \\
+    \midrule
+    \addlinespace[1.3em]
+    \multicolumn{4}{c}{\textbf{Neutron energy levels}}\\
+    \addlinespace[0.3em]
+    \midrule
+    && GCG & hfbcs\_qrpa \\
+    \midrule
+    1s$_{1/2}$ &[MeV] & -36.140 & -36.137 \\
+    1p$_{3/2}$ &[MeV] & -20.611 & -20.611 \\
+    1p$_{1/2}$ &[MeV] & -14.427 & -14.428 \\
+    \midrule
+    \addlinespace[1.3em]
+    \multicolumn{4}{c}{\textbf{Proton energy levels}}\\
+    \addlinespace[0.3em]
+    \midrule
+    && GCG & hfbcs\_qrpa \\
+    \midrule
+    1s$_{1/2}$ &[MeV] & -32.349 & -32.345 \\
+    1p$_{3/2}$ &[MeV] & -17.137 & -17.137 \\
+    1p$_{1/2}$ &[MeV] & -11.081 & -11.082 \\
+    \bottomrule
+  \end{tabular}
+  \caption{$^{16}$O complete of the Skyrme functional and Coulomb interaction. }
+  \label{tab:confronto}
+\end{table}
+\begin{table}[ht]
+  \centering
+  \begin{tabular}{lrcc}
+    \multicolumn{4}{c}{\textbf{Physical quantities}}\\
+    \addlinespace[0.3em]
+    \toprule
+    && GCG & hfbcs\_qrpa \\
+    \midrule
+    $E_{\text{TOT}}$& [MeV] & -783.587 & -783.325 \\
+    $\expval{ r^2_n}^{1/2}$ &[fm] & 4.2854 & 4.2872 \\
+    $\expval{ r^2_p}^{1/2}$ &[fm] & 4.2196 & 4.2212 \\
+    $\expval{ r^2_{ch}}^{1/2}$ &[fm] & 4.2767 & 4.2704 \\
+    \bottomrule
+  \end{tabular}
+  \caption{$^{90}$Zr, box size [-15, 15] fm, step size 0.43 fm. }
+  \label{tab:compare_all_zr90}
+\end{table}
+
+\subsection{Deformed nuclei}
+Having established that the code works as expected for spherical nuclei, we can extend the calculations to deformed systems. In this chapter, the GCG implementation is validated against well-established deformed codes.
+\subsection{Basis code and ground state}
+\begin{table}[ht]
+  \centering
+  \begin{tabular}{lrcc}
+    \addlinespace[0.3em]
+    \toprule
+    &&  GCG no $J^2$ & \texttt{HFBTHO} \\
+    \midrule
+    $E_{\text{TOT}}$& [MeV]    &  -197.219 &-197.030 \\
+    $\expval{ r^2_n}^{1/2}$    &[fm]  & 2.9998    & 2.9996 \\
+    $\expval{ r^2_p}^{1/2}$    &[fm]  & 3.0346    & 3.0326 \\
+    $\expval{ r^2_{ch}}^{1/2}$ &[fm]  & 3.1240    & 3.4614 \\
+    $\expval{\mathcal Q_{20}}$ &[-]  & 33.905 & 33.881 \\
+    \bottomrule
+  \end{tabular}
+  \caption{Results for $^{24}$Mg ground state, no pairing interaction, box $[-10, 10]$ fm, step size 0.33 fm, SkM* parametrisation.}
+  \label{tab:mg_table}
+\end{table}
+
+\begin{table}[ht]
+\centering
+% --- Neutron Table ---
+\begin{tabular}{lcc}
+    \toprule
+    Shell & $|m_j|$ & E [MeV] \\
+    \midrule
+    1s$_{1/2}$ & $ 1/2$ & -39.281 \\
+    1p$_{3/2}$ & $ 1/2$ & -28.381 \\
+    1p$_{3/2}$ & $ 3/2$ & -24.224 \\
+    1p$_{1/2}$ & $ 1/2$ & -18.680 \\
+    1d$_{5/2}$ & $ 1/2$ & -16.743 \\
+    1d$_{5/2}$ & $ 3/2$ & -14.130 \\
+    \bottomrule
+\end{tabular}  
+\caption{Single-particle energy levels in the ground state of $^{24}$Mg. As predicted by the Nilsson model, levels with a lower $|m_j|$ projection are lowered in energy, while those with a higher projection are raised, with respect to the spherical (degenerate) case.}
+\end{table}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=1.0\linewidth]{Images/mg_gs_density_axial}
+  \caption{$^{24}$Mg ground state density $\rho(x, 0, z)$, calculation done on a box $[-10, 10]$ fm, step size 0.33 fm, SkM* parametrisation.}
+  \label{fig:mg_gs_density_axial}
+\end{figure}
+
+\subsection{Cartesian benchmark and deformation curve}
+\begin{equation}
+  \label{eq:beta}
+  \beta_{2} = \frac{4\pi\expval{\mathcal Q_{20}}}{3AR^2}
+\end{equation}
+Deformation curve, Constraints explaination
+
+\begin{figure}[htp]
+  \centering
+  \includegraphics[width=1.0\linewidth]{Images/ev8_compare_nopair}
+  \caption{Comparison with the $\texttt{EV8}$ code for $^{24}$Mg, no pairing interaction, box $[-10, 10]$ fm, step size 0.6 fm, SLy4 parametrisation.}
+  \label{fig:ev8_compare_nopair}
+\end{figure}
+
+
+
+\section{Original results}
+\subsection{$^{20}$Ne clustering}
+The formation of clusters in light nuclei has been a research focus object in recent years. The interest stems from different reasons. The formation of clusters at low density is a strong indicator of specific correlations (n-p correlations or alpha-particle, ie `quartetting' correlations) and a strong test for theory. At the same time, clustering may have impact on reactions and astrophysical processes \cite{Lombardo2023}. It has to be noted that cluster formation during fission has been highlighted \cite{Vretenar}. One of the hypothesis is that some light nuclei tend to form clusters of lighter particles, mainly $\alpha$-particles, as to minimise their energy, by displaying `molecular-like' bonds and resonances among the clusters. The phenomenon is not yet understood, with the following results we show that in the framework presented in this work, the formation of clusters is present in $^{20}$Ne.
+
+\begin{equation}
+  \tau_q^{\text{TF}}= \frac 3 5 (6\pi^2)^{2/3}\rho_q^{5/3}.
+\end{equation}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1.0\linewidth]{Images/kde33_localization}
+    \caption{NLF, KDE33 functional.}
+    \label{fig:kde33_nlf}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1.0\linewidth]{Images/kde33_density}
+    \caption{NLF, KDE33 functional.}
+    \label{fig:kde33_density}
+\end{figure}
+\subsection{Near-drip line nuclei}
+The need of a mesh representation to account for weakly bound systems has been largely emphasised in previous chapters (see \ref{chap:intro}, \ref{chap:methods}). In this section, results regarding the two nuclei near drip line $^{42}$Si and $^{28}$S are presented, the former being a neutron-rich nucleus, the latter being a proton-rich nucleus. Being weakly bound systems, taking direct measurements of quantities like radii, deformations through spectroscopy etc, is not yet possible. 
+
+We shall compare the experimental neutron $S_n$ or proton $S_p$ separation energy with the theoretical value calculated using Koopmans' theorem \cite{Koopmans1934_Theorem}. The theorem states that in a frozen orbitals approximation, where the mean-field is assumed to remain constant after the removal of a particle, the energy required to remove that particle is equal to the eigenvalue of the last occupied single-particle orbital with an opposite sign.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=1.0\linewidth]{Images/si42_density_sly4}
+  \caption{$^{42}$Si density $\rho(x, 0, z)$, calculation done on a box $[-11, 11]$ fm, step size 0.37 fm, experimental data taken from \cite{AMDC_website}.}
+  \label{fig:si42_density}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=1.0\linewidth]{Images/s28_density_sly4}
+  \caption{$^{28}$S density $\rho(x, 0, z)$, calculation done on a box $[-10, 10]$ fm, step size 0.34 fm, experimental data taken from \cite{AMDC_website}.}
+  \label{fig:s28_density}
+\end{figure}
+\section{Conclusions}
+
+
+\bibliography{bibliography.bib} 
+
+\end{document}

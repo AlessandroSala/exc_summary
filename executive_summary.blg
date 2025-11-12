@@ -1,0 +1,53 @@
+This is BibTeX, Version 0.99d (TeX Live 2023)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: executive_summary.aux
+The style file: plain.bst
+Database file #1: bibliography.bib
+Warning--I didn't find a database entry for "SlaterApp"
+Warning--I didn't find a database entry for "Jackson1998"
+Warning--I didn't find a database entry for "Lombardo2023"
+Warning--I didn't find a database entry for "Vretenar"
+Warning--I didn't find a database entry for "Koopmans1934_Theorem"
+Warning--I didn't find a database entry for "AMDC_website"
+You've used 5 entries,
+            2118 wiz_defined-function locations,
+            548 strings with 5111 characters,
+and the built_in function-call counts, 1755 in all, are:
+= -- 175
+> -- 79
+< -- 0
++ -- 32
+- -- 26
+* -- 142
+:= -- 302
+add.period$ -- 16
+call.type$ -- 5
+change.case$ -- 28
+chr.to.int$ -- 0
+cite$ -- 5
+duplicate$ -- 55
+empty$ -- 134
+format.name$ -- 26
+if$ -- 352
+int.to.chr$ -- 0
+int.to.str$ -- 5
+missing$ -- 5
+newline$ -- 29
+num.names$ -- 10
+pop$ -- 17
+preamble$ -- 1
+purify$ -- 23
+quote$ -- 0
+skip$ -- 37
+stack$ -- 0
+substring$ -- 143
+swap$ -- 5
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 20
+warning$ -- 0
+while$ -- 18
+width$ -- 6
+write$ -- 59
+(There were 6 warnings)
